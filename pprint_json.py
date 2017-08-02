@@ -1,4 +1,4 @@
-import json, os
+import sys, json, os
 
 def load_data(filepath):
     if not os.path.exists(filepath):
@@ -11,7 +11,7 @@ def pretty_print_json(json_file):
 
 
 if __name__ == '__main__':
-    filename = input('Enter filename: ')
+    filename = sys.argv[1]
     json_file = load_data(filename)
     print(pretty_print_json(json_file))
 	
