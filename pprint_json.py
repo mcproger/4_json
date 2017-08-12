@@ -13,12 +13,12 @@ def pretty_print_json(json_file):
 
 
 if __name__ == '__main__':
-	try:
-		filename = sys.argv[1]
-	except IndexError:
-		filename = None
-	if filename is None:
-		print('Please, enter filepath')
-	else:	
-		json_file = load_data(filename)
-		print(pretty_print_json(json_file))
+    try:
+        filename = sys.argv[1]
+    except IndexError:
+        filename = None
+    if filename is None:
+        print('Please, enter filepath')
+    else:	
+        json_file = load_data(filename)
+	print(pretty_print_json(json_file))
