@@ -17,8 +17,9 @@ if __name__ == '__main__':
 		filename = sys.argv[1]
 	except IndexError:
 		filename = None
-	if filename is None:
-		print('Please, enter filepath')
-	else:	
+	if filename is not None and load_data(filename):
 		json_file = load_data(filename)
 		print(pretty_print_json(json_file))
+	else:	
+		print('Please, enter filepath')
+		
