@@ -22,4 +22,3 @@ if __name__ == '__main__':
 		print(pretty_print_json(json_file))
 	else:	
 		print('Please, enter filepath')
-		
