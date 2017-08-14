@@ -1,11 +1,20 @@
-import sys, json, os
+import json
+import os
+import argparse
 
 
 def load_data(filepath):
     if not os.path.exists(filepath):
         return None
-    with open(filename, 'r', encoding='utf-8') as json_file:
+    with open(filepath, 'r', encoding='utf-8') as json_file:
         return json.load(json_file)
+
+
+def get_argparser():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('filepath', type=str, help='file containing json for pretty print')
+    args = parser.parse_args()
+    return args
 
 
 def pretty_print_json(json_file):
@@ -13,12 +22,6 @@ def pretty_print_json(json_file):
 
 
 if __name__ == '__main__':
-    try:
-        filename = sys.argv[1]
-    except IndexError:
-        filename = None
-    if filename is not None and load_data(filename):
-        json_file = load_data(filename)
-        print(pretty_print_json(json_file))
-    else:	
-        print('Please, enter filepath')
+    args = get_argparser()
+    json_file = load_data(args.filepath)
+    print(pretty_print_json(json_file))
